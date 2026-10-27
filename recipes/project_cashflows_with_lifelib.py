@@ -1,5 +1,6 @@
 # Project euro-fund savings contracts with lifelib for every fee level x sensitivity.
-# The actuarial engine lives in the project library: python/euro_fund_projection.py
+# The actuarial engine is imported into the project library from GitHub (git reference
+# savings_pricing_engine): https://github.com/david-behar/life-insurance-pricing/tree/main/python
 import dataiku
 
 import euro_fund_projection as engine

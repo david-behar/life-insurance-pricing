@@ -15,6 +15,7 @@ All data is synthetic.
 | `data_gen/generate.py` | Generates the synthetic inputs into `data_gen/out/` (seeded, not committed) |
 | `wiki/home.md` | Project wiki article |
 | `DEMO.md` | Demo script (about 15 minutes) |
+| `ops/library_git.py` | Links the project library to this repo (`link`) or pulls the latest engine (`pull`) |
 
 ## Assumptions are edited in Dataiku, not here
 `assumptions`, `fee_grid` and `sensitivities` are **editable datasets** in the project. To change one:
@@ -33,5 +34,9 @@ uv venv -p 3.11 .venv && uv pip install -p .venv lifelib modelx openpyxl pandas 
 
 ## Releasing engine changes to Dataiku
 1. Push to `main`.
-2. In Dataiku, open *Project library → Git references → `savings_pricing_engine` → Update from Git*, or run the "Reset from remote" step from the API.
+2. Pull it into the project library. Either:
+   - in Dataiku, open *Code → Libraries → Git references* (`savings_pricing_engine`) and update from Git; or
+   - run `~/.local/share/uv/tools/dku-cli/bin/python3 ops/library_git.py pull`.
 3. Rerun **Run pricing**.
+
+The git reference was created once with `ops/library_git.py link`.
